@@ -1,0 +1,1 @@
+web: gunicorn electionsite.wsgi --log-file -

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="static/styles.css" />
+  </head>
+  <body>
+    <h1>Authors</h1>
+    {% for a in authors %}
+      <p>{{a.name}}</p>
+    {% endfor %}
+    <h1>Books</h1>
+    {% for b in books %}
+      <p>{{b.title}} ~ {{b.author.name}}</p>
+    {% endfor %}
+  </body>
+</html>
