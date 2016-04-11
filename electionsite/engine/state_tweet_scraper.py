@@ -4,10 +4,10 @@ import time
 import sys
 
 api = auth.get_api()
-with open('candidates.txt', 'r') as f:
+with open('./candidates.txt', 'r') as f:
     candidates = f.read().split('\n')
 
-with open('states.csv', 'r') as f:
+with open('./states.csv', 'r') as f:
     states_raw = f.read().split('\n')
     states = dict()
     for state_line in states_raw:
