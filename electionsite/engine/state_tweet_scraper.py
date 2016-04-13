@@ -3,6 +3,7 @@ import auth
 import time
 import sys
 
+
 api = auth.get_api()
 with open('./candidates.txt', 'r') as f:
     candidates = f.read().split('\n')

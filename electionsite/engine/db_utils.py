@@ -6,6 +6,15 @@ import sys
 import auth
 import psycopg2
 import cgi
+import urlparse
+
+HEROKU = True
+
+url = "localhost"
+
+if HEROKU:
+    urlparse.uses_netloc.append("postgres")
+    url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
 
 reload(sys)
@@ -17,7 +26,7 @@ conn = None
 try:
     print "Connecting to PostgreSQL server"
     conn = psycopg2.connect("dbname='election_project' user='" + username + "' " +
-                            "host='localhost' password='" + password + "'")
+                            "host='" + url + "' password='" + password + "'")
     print "Connection succeded"
     
 except:
