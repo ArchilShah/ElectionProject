@@ -7,6 +7,7 @@ import auth
 import psycopg2
 import cgi
 import urlparse
+import os
 
 HEROKU = True
 
