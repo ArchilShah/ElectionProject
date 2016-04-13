@@ -25,8 +25,17 @@ username, password = auth.get_db_credentials()
 conn = None
 try:
     print "Connecting to PostgreSQL server"
-    conn = psycopg2.connect("dbname='election_project' user='" + username + "' " +
-                            "host='" + url + "' password='" + password + "'")
+    if HEROKU:
+        conn = psycopg2.connect(
+                database=url.path[1:],
+                user=url.username,
+                password=url.password,
+                host=url.hostname,
+                port=url.port
+               )
+    else:
+        conn = psycopg2.connect("dbname='election_project' user='" + username + "' " +
+                                "host='" + url + "' password='" + password + "'")
     print "Connection succeded"
     
 except:
